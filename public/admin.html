@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PHOTACC — Admin</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<canvas id="bokeh" aria-hidden="true"></canvas>
+<div class="glowtop" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <a class="brand" href="/"><span class="brand__mark" id="brandMark"></span><span class="brand__word">PHOTACC</span></a>
+  <a class="topbar__admin" href="/">Back to site</a>
+</header>
+
+<main>
+  <section class="screen screen--active" id="admin">
+    <div class="panel" id="adminLogin">
+      <p class="shead__eye">Restricted</p>
+      <h2 class="panel__title">Admin access</h2>
+      <p class="panel__sub">Results are private. Enter the admin password to view the tally.</p>
+      <div class="field">
+        <input type="password" id="adminPass" placeholder="Password" autocomplete="current-password" />
+        <p class="field__error" id="adminError"></p>
+      </div>
+      <button class="btn btn--gold" id="adminEnter">View results</button>
+      <a class="btn btn--ghost" href="/" style="display:block;text-decoration:none;text-align:center;line-height:1.4">Back to site</a>
+    </div>
+
+    <div class="panel panel--wide hidden" id="adminDash">
+      <div class="dash__top">
+        <div><p class="dash__eye">Live tally</p><h2 class="panel__title panel__title--left">Results</h2></div>
+        <div class="dash__total"><span class="dash__total-num" id="totalVoters">0</span><span class="dash__total-lbl">ballots cast</span></div>
+      </div>
+      <div id="resultsList"></div>
+      <div class="dash__actions">
+        <button class="btn btn--gold" id="refreshResults">Refresh</button>
+        <button class="btn btn--ghost" id="adminLogout">Lock dashboard</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot__brand"><span class="foot__logo" id="footLogo"></span><span class="foot__word">PHOTACC</span></div>
+  <span class="foot__copy">Admin console</span>
+  <span class="foot__copy">&copy; <span id="year"></span> Photography Association of Cave Hill Campus</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
